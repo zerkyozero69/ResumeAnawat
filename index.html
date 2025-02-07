@@ -1,0 +1,49 @@
+# _config.yml
+
+# Site settings
+title: "My Resume"
+baseurl: ""  # Set this if hosting under a subdirectory
+url: "https://yourgithubusername.github.io"
+
+author:
+  name: "Your Name"
+  email: "your.email@example.com"
+  github: "yourgithubusername"
+  linkedin: "your-linkedin-url"
+  portfolio: "your-portfolio-url"
+
+theme: jekyll-theme-minimal
+
+---
+
+# index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+    <header>
+        <h1>{{ site.author.name }}</h1>
+        <p>Email: <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></p>
+        <p>GitHub: <a href="https://github.com/{{ site.author.github }}">{{ site.author.github }}</a></p>
+        <p>LinkedIn: <a href="{{ site.author.linkedin }}">{{ site.author.linkedin }}</a></p>
+        <p>Portfolio: <a href="{{ site.author.portfolio }}">{{ site.author.portfolio }}</a></p>
+    </header>
+    <section>
+        <h2>Experience</h2>
+        <p>Add your work experience here.</p>
+    </section>
+    <section>
+        <h2>Education</h2>
+        <p>Add your educational background here.</p>
+    </section>
+    <section>
+        <h2>Skills</h2>
+        <p>Add your skills here.</p>
+    </section>
+</body>
+</html>
