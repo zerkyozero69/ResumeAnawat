@@ -2,9 +2,6 @@
 
 # Site settings
 title: "My Resume"
-baseurl: ""  # Set this if hosting under a subdirectory
-url: "https://yourgithubusername.github.io"
-
 author:
   name: "Anawat Promsorn"
   email: "Anawat_Promsorn@hotmail.com"
