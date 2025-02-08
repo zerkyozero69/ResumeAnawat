@@ -709,6 +709,19 @@ header {
     height: 90vmax;
   }
 }
+.about-content {
+    display: flex;
+    flex-direction: column; /* จัดเรียงเป็นแนวตั้ง */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวขวาง */
+    text-align: center; /* จัดข้อความตรงกลาง */
+}
+
+.about-heading {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
+}
+
 .about-card {
     /*background: #f9f9f9; /* สีพื้นหลังอ่อนๆ */
     padding: 30px;
