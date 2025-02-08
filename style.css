@@ -730,3 +730,8 @@ header {
     margin: auto; 
     text-align: center; 
 }
+ul {
+    list-style: none; /* เอา bullet ออก */
+    padding: 0; /* ลบ padding ด้านซ้าย */
+    margin: 0; /* ลบ margin ด้านนอก */
+}
