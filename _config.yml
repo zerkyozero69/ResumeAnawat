@@ -6,10 +6,8 @@ baseurl: ""  # Set this if hosting under a subdirectory
 url: "https://yourgithubusername.github.io"
 
 author:
-  name: "Your Name"
-  email: "your.email@example.com"
-  github: "yourgithubusername"
-  linkedin: "your-linkedin-url"
+  name: "Anawat Promsorn"
+  email: "Anawat_Promsorn@hotmail.com"
   portfolio: "your-portfolio-url"
 
 theme: jekyll-theme-minimal
