@@ -1,171 +1,325 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="author" content="Sanket Bodake">
-  <meta name="description" content="Portfolio website | Web Developer | Open source Enthusiast">
-  <meta name="keywords" content="Sanket, bodake, Sanket bodake, portfolio, css, javascript, software, coding, programming, web, 
-  development, developer, frontend">
+  <meta name="author" content="Anawat Promsorn">
+  <meta name="description" content="Portfolio website | Software Developer | Anawat Promsorn">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="IZ7Sm227j_9N0Sy_JmwOvn1_OAm_O2rHr2833ZV0Fro">
-  <title>Anawat Promsorn</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Anawat Promsorn | Software Developer Portfolio</title>
+  
+  <!-- Tailwind CSS CDN (2026 Modern Standard) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Kanit', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  
+  <!-- FontAwesome & Google Fonts -->
   <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700,300|Quattrocento" rel="stylesheet">
-  <link rel="shortcut icon" href="./img/fbavatar_1630400663387_6838396024049256103.png" type="image/x-icon">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <meta name="title" content="Portfolio Website | Sanket Bodake">
-  <meta name="title" content="Portfolio Website | Sanket Bodake">
-  <meta itemprop="description" content="Web Developer | Open source Enthusiast">
-  <meta name="application-name" content="Portfolio Website">
-  <meta property="og:site_name" content="">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://sanketbodake.ninja/">
-  <meta property="og:title" content="Sanket Bodake">
-  <meta property="og:description" content="Portfolio website | Web Developer | Open source Enthusiast">
-  <meta name="url" content="https://sanketbodake.ninja/">
-  <meta name="language" content="English">
-  <meta property="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://sanketbodake.ninja/">
-  <meta name="twitter:title" content="Sanket Bodake">
-  <meta name="twitter:description" content="Portfolio website | Web Developer | Open source Enthusiast">
-  <meta name="twitter:site" content="@Sanket46171296">
-  <meta name="twitter:creator" content="@Sanket46171296">
-  <meta name="url" content="https://sanketbodake.ninja/">
-  <meta property="og:locale" content="en">
-  <meta name="language" content="English">
-  <meta itemprop="image" content="https://sanketbodake.ninja/myImage.jpg">
-  <meta property="og:image" content="https://sanketbodake.ninja/myImage.jpg">
-  <meta name="twitter:image" content="https://sanketbodake.ninja/myImage.jpg">
-  <meta name="twitter:image:src" content="https://sanketbodake.ninja/myImage.jpg">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="512">
-  <meta property="og:image:height" content="512">
-  <meta property="twitter:image:type" content="image/png">
-  <meta property="twitter:image:width" content="512">
-  <meta property="twitter:image:width" content="512">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://i.postimg.cc/Hx4nChpH/fbavatar-1630400663387-6838396024049256103.png" type="image/x-icon">
+  
+  <!-- Custom Luxury Styles & Animations -->
+  <style>
+    body {
+      font-family: 'Kanit', sans-serif;
+      background-color: #0b0f19;
+      color: #f3f4f6;
+      overflow-x: hidden;
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b0f19;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f2937;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #374151;
+    }
+    /* Glassmorphism Effect */
+    .glass-card {
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-nav {
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
 </head>
 
-<body>
-  <header class="header">
-    <nav class="navbar">
-      <div class="navbar-container container">
-        <div>
-          <h1 class="navbar-brand"> Anawat Promsorn</h1>
-        </div>
-        <ul class="menu-items">
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#my-works"> Work Experience</a></li>
-          <li><a href="#contact-me">Contact</a></li>
-        </ul>
-      </div>
+<body class="selection:bg-indigo-500 selection:text-white">
+
+  <!-- Mouse Spotlight Effect (Luxury JS Feature) -->
+  <div id="spotlight" class="pointer-events-none fixed inset-0 z-30 transition-opacity duration-300 lg:absolute"></div>
+
+  <!-- HEADER & NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+    <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#home-page" class="text-xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent hover:opacity-80 transition">
+        Anawat.dev
+      </a>
+      <ul class="flex items-center space-x-8 text-sm font-medium text-gray-300">
+        <li><a href="#about" class="hover:text-indigo-400 transition">About Me</a></li>
+        <li><a href="#my-works" class="hover:text-indigo-400 transition">Experience</a></li>
+        <li><a href="#contact-me" class="hover:text-indigo-400 transition">Contact</a></li>
+      </ul>
     </nav>
-    <div class="home-content" id="home-page">
-      <div class="name">
-        <h1>Hi, I'm Anawat</h1>
-        <p>Programmer</p>
-      </div>
-      <div class="angle-down-icon">
-        <a href="#about"><i class="fas fa-angle-down"></i></a>
-      </div>
-    </div>
   </header>
-  <section class="about-me" id="about">
-      <div class="container">
-        <div class="about-content">
-          <div class="left-content">
-            <div>
-              <h1 class="about-heading">About Me</h1>
-            </div>
-            <div class="about-card">
-    <img src="https://i.postimg.cc/Hx4nChpH/fbavatar-1630400663387-6838396024049256103.png" alt="image" width="120">
-    <p><strong>Name:</strong> Anawat Promsorn</p>
-    <p><strong>Nickname:</strong> Mai</p>
-    <p><strong>About Me:</strong> Hello, I am a software developer looking for new opportunities in the IT field. I am eager to explore different career paths and transition into a new role. I am passionate about self-improvement and always strive to become better.</p>
-</div>
-          </div>
-          <div class="skills">
-            <div class="right-content">
-              <div>
-                <h1 class="skills-heading">Resume Objective</h1>
-              </div>
-              <div>
-                 <p>
-              I am capable of working with flexible schedules, maintaining a positive attitude, and being open to feedback from others. I am a self-learner who is always ready to explore and embrace new knowledge. Furthermore, I excel in teamwork, pay close attention to detail, and am committed to continuously improving myself to consistently deliver the best results in every task I undertake things; the more, the better.
-            </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  </section>
-   <section id="my-works">
-    <div class="portfolio">
-      <div class="proj-heading">
-        <h1>Portfolio</h1>
+
+  <!-- HERO SECTION -->
+  <section id="home-page" class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20">
+    <!-- Glow Background Blobs -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/3 left-1/3 w-72 h-72 bg-pink-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto space-y-6">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-xs text-indigo-300 border border-indigo-500/20">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Available for New Opportunities
       </div>
      
+      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight">
+        Hi, I'm <span class="bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text font-extrabold text-transparent ">Anawat</span>
+      </h1>
+      
+      <!-- Luxury Typewriter Effect JS Target -->
+      <p class="text-xl md:text-2xl text-gray-400 font-light h-10">
+        I am a <span id="typewriter" class="text-indigo-400 font-semibold border-r-2 border-indigo-400 pr-1 animate-pulse"></span>
+      </p>
+
+      <div class="pt-4 flex justify-center gap-4">
+        <a href="#contact-me" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium shadow-lg shadow-indigo-500/25 hover:shadow-indigo-1000/40 hover:-translate-y-0.5 transition duration-300">
+          Get in Touch
+        </a>
+        <a href="#about" class="px-8 py-3.5 rounded-xl glass-card text-gray-300 font-medium hover:text-white hover:border-gray-500 transition duration-300">
+          Learn More
+        </a>
+      </div>
+    </div>
+
+
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <a href="#about" class="text-gray-400 hover:text-indigo-400 transition">
+        <i class="fas fa-angle-down text-xl"></i>
+      </a>
     </div>
   </section>
-  <div class="contact" id="contact-me">
-    <div class="container">
-      <div class="contact-content">
-        <h2>Contact Me</h2>
-        <p class="mail">
-       
-                  <ul class="contact-info">
-                     <div class="contactMail">
-            <li>📧 Email: anawat_promsorn@hotmail.com
-</li>
-            <li>📞 TEL 092-551-7123</li>
-            <li>📍 Address:180/11 Moo.2 Ngamwongwan Road,
-Bang Khen, Mueang
- Nonthaburi, Nonthaburi,
- Thailand 11000
-</li>
-        </ul>
-        </p>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-28 px-6 max-w-7xl mx-auto text-red-500">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <!-- Left: Profile Card -->
+      <div class="lg:col-span-5 glass-card p-8 rounded-3xl relative overflow-hidden group">
+        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition duration-500"></div>
+        
+        <div class="flex flex-col items-center text-center space-y-4 relative z-10">
+          <div class="relative">
+            <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-indigo-500 to-pink-500 blur opacity-70"></div>
+            <img src="https://i.postimg.cc/Hx4nChpH/fbavatar-1630400663387-6838396024049256103.png" alt="Anawat Promsorn" class="relative w-28 h-28 rounded-full object-cover border-2 border-slate-800 bg-slate-900">
+          </div>
+          
+          <div>
+            <h2 class="text-2xl font-bold">Anawat Promsorn</h2>
+            <p class="text-indigo-400 text-sm font-medium">Nickname: Mai</p>
+          </div>
+
+          <div class="w-full pt-4 border-t border-gray-800 text-left space-y-2 text-sm text-gray-300">
+            <p><strong>Role:</strong> Software Developer</p>
+            <p class="leading-relaxed text-gray-400 pt-1">
+              Hello, I am a software developer looking for new opportunities in the IT field. Passionate about self-improvement and always striving to become better.
+            </p>
+          </div>
+        </div>
       </div>
+
+      <!-- Right: Resume Objective -->
+      <div class="lg:col-span-7 glass-card p-8 md:p-10 rounded-3xl space-y-6">
+        <div class="inline-block px-3 py-1 rounded-lg bg-indigo-500/10 text-indigo-400 text-xs font-semibold uppercase tracking-wider">
+          Career Goal
+        </div>
+        <h2 class="text-3xl font-bold tracking-tight">Resume Objective</h2>
+        <p class="text-gray-300 leading-relaxed text-base md:text-lg font-light">
+          I am capable of working with flexible schedules, maintaining a positive attitude, and being open to feedback from others. I am a self-learner who is always ready to explore and embrace new knowledge. Furthermore, I excel in teamwork, pay close attention to detail, and am committed to continuously improving myself to consistently deliver the best results in every task I undertake; the more, the better.
+        </p>
+        <div class="pt-2 flex flex-wrap gap-2">
+          <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-indigo-300 border border-slate-700">Teamwork</span>
+          <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-indigo-300 border border-slate-700">Self-Learner</span>
+          <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-indigo-300 border border-slate-700">Detail-Oriented</span>
+          <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-indigo-300 border border-slate-700">Flexible</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PORTFOLIO / EXPERIENCE SECTION -->
+  <section id="my-works" class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Portfolio & Experience</h2>
+      <p class="text-gray-400">Showcasing projects, milestones, and professional journey.</p>
+    </div>
+    
+    <div class="glass-card p-10 rounded-3xl text-center text-gray-400 border-dashed border-gray-700">
+      <i class="fas fa-code text-4xl text-indigo-400 mb-3"></i>
+      <p class="text-lg font-medium text-gray-300">Projects & Experience Coming Soon</p>
+      <p class="text-sm text-gray-500 mt-1">Ready to build and contribute to innovative applications.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact-me" class="py-28 px-6 max-w-5xl mx-auto">
+    <div class="glass-card p-8 md:p-12 rounded-3xl relative overflow-hidden">
+      <div class="absolute -right-20 -top-20 w-60 h-60 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <h2 class="text-3xl font-bold tracking-tight mb-2">Let's Connect</h2>
+        <p class="text-gray-400 text-sm">Feel free to reach out for opportunities or collaborations.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Email Box with Copy Feature -->
+        <div onclick="copyToClipboard('anawat_promsorn@hotmail.com')" class="glass-card p-6 rounded-2xl flex flex-col items-center text-center cursor-pointer hover:border-indigo-700/100 transition group">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 mb-4 group-hover:scale-110 transition">
+            <i class="fas fa-envelope text-lg"></i>
+          </div>
+          <h3 class="font-semibold text-sm text-gray-300 mb-1">Email</h3>
+          <p class="text-xs text-indigo-400 break-all">anawat_promsorn@hotmail.com</p>
+          <span class="text-[10px] text-gray-500 mt-2">(Click to copy)</span>
+        </div>
+
+        <!-- Phone Box -->
+        <a href="tel:0925517123" class="glass-card p-6 rounded-2xl flex flex-col items-center text-center hover:border-indigo-500/50 transition group">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-4 group-hover:scale-110 transition">
+            <i class="fas fa-phone-alt text-lg"></i>
+          </div>
+          <h3 class="font-semibold text-sm text-gray-300 mb-1">Phone</h3>
+          <p class="text-xs text-gray-400">092-551-7123</p>
+        </a>
+
+        <!-- Address Box -->
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+          <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center text-pink-400 mb-4">
+            <i class="fas fa-map-marker-alt text-lg"></i>
+          </div>
+          <h3 class="font-semibold text-sm text-gray-300 mb-1">Location</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">180/11(22) Nonthaburi, Thailand 11000</p>
+        </div>
       </div>
     </div>
+  </section>
+  
+  <!--<section id="Download" class="py-28 px-6 max-w-5xl mx-auto">
+  <button class="bg-white text-pink-600 hover:bg-pink-600 hover:text-white ...">
+  <svg class="size-5 stroke-current ..." fill="none">
+    
+  </svg>
+  Download file
+</button>
+</Section> -->
+
+  <!-- FOOTER -->
+  <footer class="py-8 text-center text-xs text-gray-500 border-t border-gray-900">
+    <p>© 2026 Anawat Promsorn. All rights reserved.</p>
+  </footer>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-indigo-600 text-white text-xs px-4 py-3 rounded-xl shadow-xl flex items-center gap-2">
+    <i class="fas fa-check-circle"></i> Copied email to clipboard!
   </div>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $(window).scroll(function() {
-        // checks if window is scrolled more than 500px, adds/removes solid class
-        if ($(this).scrollTop() > 550) {
-          $('.navbar').addClass('solid');
-          $('.back-to-top').addClass('visible');
-        } else {
-          $('.navbar').removeClass('solid');
-          $('.back-to-top').removeClass('visible');
-        }
-      });
-    });
-  </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- LUXURY JAVASCRIPT ANIMATIONS & INTERACTIONS -->
   <script>
-    $(document).ready(function() {
-      // Add smooth scrolling to all links
-      $("a").on('click', function(event) {
-        // Make sure this.hash has a value before overriding default behavior
-        if (this.hash !== "") {
-          // Prevent default anchor click behavior
-          event.preventDefault();
-          // Store hash
-          var hash = this.hash;
-          // Using jQuery's animate() method to add smooth page scroll
-          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-          $('html, body').animate({
-            scrollTop: $(hash).offset().top
-          }, 800, function() {
-            // Add hash (#) to URL when done scrolling (default click behavior)
-            window.location.hash = hash;
-          });
-        } // End if
-      });
+    // 1. Navbar Solid Glass Effect on Scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('glass-nav', 'shadow-lg');
+      } else {
+        navbar.classList.remove('glass-nav', 'shadow-lg');
+      }
     });
+
+    // 2. Luxury Typewriter Effect for Hero Section
+    const words = ["Software Developer", "Programmer", "Self-Learner", "Problem Solver"];
+    let i = 0;
+    let timer;
+
+    function typingEffect() {
+      let word = words[i].split("");
+      var loopTyping = function() {
+        if (word.length > 0) {
+          document.getElementById('typewriter').innerHTML += word.shift();
+        } else {
+          setTimeout(deletingEffect, 2000);
+          return false;
+        }
+        timer = setTimeout(loopTyping, 100);
+      };
+      loopTyping();
+    }
+
+    function deletingEffect() {
+      let word = words[i].split("");
+      var loopDeleting = function() {
+        if (word.length > 0) {
+          word.pop();
+          document.getElementById('typewriter').innerHTML = word.join("");
+        } else {
+          if (words.length > (i + 1)) {
+            i++;
+          } else {
+            i = 0;
+          }
+          setTimeout(typingEffect, 500);
+          return false;
+        }
+        timer = setTimeout(loopDeleting, 50);
+      };
+      loopDeleting();
+    }
+    typingEffect();
+
+    // 3. Mouse Spotlight Glow Effect
+    const spotlight = document.getElementById('spotlight');
+    window.addEventListener('mousemove', (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+      spotlight.style.background = `radial-gradient(600px circle at ${x}px ${y}px, rgba(99, 102, 241, 0.07), transparent 80%)`;
+    });
+
+    // 4. Copy to Clipboard Function with Toast Notification
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        toast.classList.remove('translate-y-20', 'opacity-0');
+        setTimeout(() => {
+          toast.classList.add('translate-y-20', 'opacity-0');
+        }, 3000);
+      });
+    }
   </script>
 </body>
 
